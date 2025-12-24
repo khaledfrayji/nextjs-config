@@ -37,3 +37,30 @@ If you’re just starting out, here’s the best part:
 You don’t need to memorize all the rules or worry about setup right away. Next.js already includes ESLint in the default setup - so you’ll start benefiting from clean, consistent code right from the start. But before we move on, let’s add Prettier on top.
 
 Start by installing Prettier, and its TailwindCSS plugin as dev dependencies:
+
+npm install -D prettier prettier-plugin-tailwindcss
+
+Then add a .prettierrc file in the root of your application. Remember to include the dot . in the file name! It’s a Pretter config file, that tells it how we want our code to look like. Here’s a config I like to use in my projects - just copy it, and paste into your .prettierrc file:
+
+{
+  "trailingComma": "es5",
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 120,
+  "endOfLine": "auto",
+  "arrowParens": "always",
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+
+Once that’s done, create.prettierignore in the root of your app, and add the following files, folders and patterns inside:
+
+node_modules
+.next
+out
+build
+.next
+*.log
+.env*
+public
+
+This tells Prettier to ignore these files - they are not a part of our source code, so we don’t care if they are pretty or not. 😅
